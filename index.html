@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive map of New York City charter school locations sourced from New York State GIS." />
+  <title>NYC Charter School Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoSx7ZpW9dN4pvo=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="eyebrow"><span class="dot"></span> NYC EDUCATION DATA</div>
+    <h1>Charter School<br/><span>Explorer</span></h1>
+    <p class="intro">Explore charter school locations across New York City's five boroughs.</p>
+    <div class="count-card"><div class="count" id="totalCount">—</div><div class="count-label">school locations matching filters</div></div>
+    <label for="search">Search schools or addresses</label>
+    <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search by name or ZIP…" autocomplete="off" /></div>
+    <label for="borough">Borough</label>
+    <select id="borough"><option value="all">All five boroughs</option><option value="Bronx">Bronx</option><option value="Brooklyn">Brooklyn</option><option value="Manhattan">Manhattan</option><option value="Queens">Queens</option><option value="Staten Island">Staten Island</option></select>
+    <div class="list-header"><strong>School locations</strong><span id="resultsCount">—</span></div>
+    <div id="results" class="results" aria-live="polite"><div class="loading">Loading state school-location data…</div></div>
+    <div class="bottom"><span id="statusDot" class="status-dot"></span><span id="status">Connecting to NYS GIS…</span><p>Source: <a href="https://gisservices.its.ny.gov/arcgis/rest/services/NYS_Schools/FeatureServer/4" target="_blank" rel="noopener">NYS ITS / NYSED Charter K–12 GIS layer</a>.</p><p class="fineprint">Records represent mapped school locations in the source, not necessarily every instructional campus. See <a href="https://nyccharterschools.org/data-hub/" target="_blank" rel="noopener">NYC Charter School Center</a> for campus-level cross-checking.</p></div>
+  </aside>
+  <main class="map-panel"><div id="map" aria-label="Map of charter school locations in New York City"></div><div class="map-banner"><span class="pin-icon">●</span> New York City <span class="separator">/</span> Charter schools <button id="reset" type="button">Reset view ↗</button></div><div class="map-legend"><span class="legend-pin"></span> Charter school location</div></main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>
