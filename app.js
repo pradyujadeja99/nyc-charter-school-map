@@ -22,7 +22,15 @@ const officialSchools=SUCCESS_ACADEMY_DIRECTORY.map(s=>({...s}));
 function officialMode(){return /^success\s+academy(?:\b|$)/i.test(el('search').value.trim());}
 function status(message,error=false){el('status').textContent=message;el('statusDot').className='status-dot'+(error?' error':'');}
 function render(){
- const q=el('search').value.trim().toLowerCase(),b=el('borough').value,official=officialMode();
+ const q=el('search').value.trim().toLowerCase(),b=el('borough').value,official=officialMode(); 
+ const gisLegend = document.getElementById('gis-legend');
+ const successLegend = document.getElementById('success-legend');
+
+ if (gisLegend && successLegend) {
+   gisLegend.style.display = official ? 'none' : 'flex';
+   successLegend.style.display = official ? 'flex' : 'none';
+ }
+
  const source=official?officialSchools:schools;
  // In the official directory mode, the query identifies the organization; borough filtering still applies.
  const filtered=source.filter(s=>(b==='all'||s.borough===b)&&(official||!q||[s.name,s.aliases||'',s.address,s.city,s.zip,s.code].some(v=>v.toLowerCase().includes(q))));
