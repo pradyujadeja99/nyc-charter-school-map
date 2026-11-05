@@ -5,7 +5,12 @@ const NYC_COUNTIES={'bronx':'Bronx','kings':'Brooklyn','new york':'Manhattan','q
 const NYC_CENTER=[40.725,-73.93], NYC_ZOOM=11;
 const map=L.map('map',{zoomControl:false}).setView(NYC_CENTER,NYC_ZOOM);
 L.control.zoom({position:'bottomright'}).addTo(map);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',maxZoom:19}).addTo(map);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
 const markers=L.layerGroup().addTo(map);
 let schools=[];let markerById=new Map();
 const el=id=>document.getElementById(id);
