@@ -19,7 +19,9 @@ function normalize(feature){
  return {id:String(p.OBJECTID??p.SED_CODE??`${lat},${lng}`),name:String(p.LABEL_NAME||p.POPULAR_NAME||p.LEGAL_NAME||'Unnamed charter school'),aliases:[p.LEGAL_NAME,p.POPULAR_NAME,p.LABEL_NAME].filter(Boolean).join(' '),address:String(p.PHYSADDRLINE1||''),city:String(p.PHYSCITY||''),zip:String(p.PHYSZIPCD5||''),borough,lat,lng,code:String(p.SED_CODE||'')};
 }
 const officialSchools=SUCCESS_ACADEMY_DIRECTORY.map(s=>({...s}));
-function officialMode(){return /^success\s+academy(?:\b|$)/i.test(el('search').value.trim());}
+
+function officialMode(){return /success/i.test(el('search').value.trim());}
+
 function status(message,error=false){el('status').textContent=message;el('statusDot').className='status-dot'+(error?' error':'');}
 function render(){
  const q=el('search').value.trim().toLowerCase(),b=el('borough').value,official=officialMode(); 
