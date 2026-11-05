@@ -15,6 +15,20 @@
 <div class="bottom"><span id="statusDot" class="status-dot"></span><span id="status">Connecting to GIS…</span>
 <p>Sources: <a href="https://gisservices.its.ny.gov/arcgis/rest/services/NYS_Schools/FeatureServer/4" target="_blank" rel="noopener">NYS GIS charter K–12 data</a> and <a href="https://www.successacademies.org/locations/" target="_blank" rel="noopener">Success Academy official directory</a>.</p>
 <p class="fineprint">Search “Success Academy” to show 59 schools listed by Success Academy, including future/reopening locations. Pins are plotted when their addresses are successfully located. Other searches use state GIS records; different sources have different counting methods.</p></div></aside>
-<main class="map-panel"><div id="map" aria-label="Map of charter school locations in New York City"></div><div class="map-banner"><span class="pin-icon">●</span> New York City <span class="separator">/</span> Charter schools <button id="reset" type="button">Reset view ↗</button></div><div class="map-legend"><span class="legend-pin"></span> Charter school location</div></main></div>
+<main class="map-panel"><div id="map" aria-label="Map of charter school locations in New York City"></div><div class="map-banner"><span class="pin-icon">●</span> New York City <span class="separator">/</span> Charter schools <button id="reset" type="button">Reset view ↗</button></div>
+<div class="map-legend" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
+
+  <div style="display:flex; align-items:center; gap:8px;">
+    <span style="width:13px; height:13px; border-radius:50%; background:#078B7D;"></span>
+    NYS GIS charter schools
+  </div>
+
+  <div style="display:flex; align-items:center; gap:8px;">
+    <span style="width:13px; height:13px; border-radius:50%; background:#D48732;"></span>
+    Success Academy directory
+  </div>
+
+</div>
+</main></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="success-academy-schools.js"></script><script src="app.js"></script></body></html>
