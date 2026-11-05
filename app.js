@@ -60,3 +60,9 @@ async function retrieve(){
  finally{clearTimeout(timeout);}
 }
 el('borough').addEventListener('change',render);el('search').addEventListener('input',render);el('reset').addEventListener('click',()=>{el('search').value='';el('borough').value='all';map.setView(NYC_CENTER,NYC_ZOOM);render();});retrieve();
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 300);
+});
